@@ -1,0 +1,397 @@
+$BgColor: rgb(173, 194, 196);
+$PageColor: rgb(114, 208, 202);
+$PageColorDarker: rgb(43, 148, 141);
+
+@mixin alignCenter {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@keyframes BorderAnimLeftRight {
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+@keyframes BorderAnimTopBottom {
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(100%);
+    }
+}
+@keyframes BorderAnimRightLeft {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+@keyframes BorderAnimBottomTop {
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(-100%);
+    }
+}
+
+
+// Font Styles
+
+// font-family: 'Dancing Script', cursive;
+// font-family: 'Julius Sans One', sans-serif;
+// font-family: 'Monoton', cursive;
+// font-family: 'Press Start 2P', cursive;
+// font-family: 'Righteous', cursive;
+
+// font-family: 'Montserrat Subrayada', sans-serif;
+// font-family: 'Rambla', sans-serif;
+
+
+.HomePage{
+    position:  absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    font-family: 'Rambla', sans-serif;
+    scroll-behavior: smooth;
+
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100vh;
+    grid-template-areas:
+    "LeftBox RightBox";
+    
+    .LeftBox{
+        z-index: 1;
+        position: relative;
+        grid-area: LeftBox;
+        background-color: black;
+        @include alignCenter();
+        flex-direction: column;
+        overflow: hidden;
+
+        #GridAnim{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            background-color: transparent;
+
+            span{
+                width: 80%;
+                height: 80%;
+                background-color: rgba(114, 208, 202, 0.255);
+                border-radius: 5px;
+                margin-top: 8px;
+            }
+        }
+
+        .MainTitle{
+            position: relative;
+            background-color: transparent;
+            font-size: 4rem;
+            font-family: 'Montserrat Subrayada', sans-serif;
+            text-shadow: 0px 0px 5px white;
+        }
+
+        .SubTitle{
+            font-size: 25px;
+            margin: 0px 50px;
+            text-align: center;
+            letter-spacing: 5px;
+        }
+
+        .MainLogo{
+            fill: white;
+            width: 500px;
+            height: 500px;
+        }
+
+    }
+
+    .RightBox{
+        z-index: 1;
+        position:  relative;
+        grid-area: RightBox;
+        background-color: black;
+        @include alignCenter();
+        flex-direction: column;
+        // background-color: white;
+
+        .QuestTitle{
+            font-size: 30px;
+            text-align: center;   
+            margin: 0px 50px;
+            letter-spacing: 2px;
+            color: $PageColor;
+        }
+
+        .QuestBox{
+            position: relative;
+            height: 40%;
+            width: 90%;
+            border: 2px solid white;
+            // box-shadow: 0px 0px 10px white;
+            border-radius: 40px;
+            background-color: $PageColorDarker;
+            overflow: scroll;
+
+            .What,.Why{
+                position: relative;
+                width: 100%;
+                height: 50%;
+                @include alignCenter();
+                flex-direction: column;
+                background-color: transparent;
+                transition: height 1s;
+                cursor: pointer;
+
+                &:hover{
+                    .TitleBox{
+                        svg{
+                            fill: black;
+                            transition: fill 500ms;
+                        }
+                    }
+                }
+
+    
+                .TitleBox{
+                    position: relative;
+                    @include alignCenter();
+                    width: 100%;
+                    height: 100%;
+                    background-color: transparent;
+                    color: black;
+                    @include alignCenter();
+                    // flex-direction: column;
+                    border-top: 2px solid white;
+
+
+                    h2{
+                        position: relative;
+                        background-color: transparent;
+                        text-align: center;
+                        width: 70%;
+                        color: black;
+                        transition: opacity 500ms;
+                        letter-spacing: 4px;
+                        // font-family: 'Montserrat Subrayada', sans-serif;
+                        // font-family: 'Rambla', sans-serif;
+                    }
+
+                    .h2-1{
+                        font-size: 2.5rem;
+                    }   
+                    .h2-2{
+                        font-size: 2rem;  
+                    }
+
+                    svg{
+                        position: relative;
+                        fill: white;
+                        background-color: transparent;
+                        width: 50px;
+                        height: 50px;
+                        transition: fill 1s;
+                    }
+                    
+                }
+
+                         
+                p{
+                    position: absolute;
+                    overflow: hidden;
+                    height: 60%;
+                    width: 70%;
+                    left: 7%;
+                    color: black;
+                    font-size: 1.1rem;
+                    // background-color: red;
+                    opacity: 0;
+                    background-color: transparent;
+                    transition: all 200ms;
+                }       
+            }
+        }
+
+        .QuestButton{
+            position: relative;
+            padding: 20px 40px;
+            cursor: pointer;
+            font-family: 'Montserrat Subrayada', sans-serif;
+
+            background-color: white;
+            
+            transition: background-color 500ms, color 500ms;
+            // transition: background-color 300ms;
+            // transition-delay: 5s;
+            overflow: hidden;
+
+            p{
+                background-color: transparent;
+                font-size: 40px;
+                color: $PageColorDarker;
+                transition: color 500ms;
+                text-shadow: 0px 5px 1px black;
+            }
+
+            p::before{
+                content: "";
+                position: absolute;
+                height: 8px;
+                width: 100%;
+                top: 0%;
+                left: 0%;
+                background: linear-gradient(to right, white, $PageColorDarker);
+                animation: BorderAnimLeftRight 2s linear 0ms infinite;
+                
+            }
+            
+            p::after{
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 8px;
+                top: 0%;
+                left: 0%;
+                background: linear-gradient(to top, white, $PageColorDarker);
+                transition: height 500ms;
+                animation: BorderAnimBottomTop 2s linear 3s infinite;
+            }
+
+            .liquid::before{
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 8px;
+                bottom: 0%;
+                right: 0%;
+                background: linear-gradient(to bottom, white, $PageColorDarker);
+                transition: height 500ms;
+                animation: BorderAnimTopBottom 2s linear 1s infinite;
+            }
+
+            .liquid::after{
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 8px;
+                bottom: 0%;
+                right: 0%;
+                background: linear-gradient(to left, white, $PageColorDarker);
+                transition: width 500ms;
+                animation: BorderAnimRightLeft 2s linear 2s infinite;
+            }
+            
+            &:hover{
+                background-color: $PageColorDarker;
+                p{
+                    color: white;
+                    transition: color 500ms;
+                }
+                transition: background-color 500ms;
+            }
+
+        }
+    }
+
+    .MainBox{
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0, 0, 0);
+        display: grid;
+    
+        h1{
+            font-family: 'Montserrat Subrayada', sans-serif;
+            font-size: 50px;
+            padding: 0px;
+            color: $PageColor;
+            margin-top: 40px;
+            margin-left: 40px;
+            margin-right: 40px;
+            margin-bottom: 0px;
+        }
+
+        form{
+            // margin-left: 5%;
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            background-color: transparent;
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas: 
+            "First Second";
+
+            input, label, select{
+                margin-left: 40px;
+            }
+
+            label{
+                font-size: clamp(18px, 2vw, 20px);
+                margin: 0px 40px;
+            }
+
+            select{
+                height: 30px;
+                width: 50%;
+            }
+            
+            .First{
+                @include alignCenter();
+                grid-area: First;
+                position: relative;
+                overflow: hidden;
+                flex-direction: column;
+                align-items: flex-start;
+                
+            }
+            .Second{
+                @include alignCenter();
+                grid-area: Second;
+                position: relative;
+                overflow: hidden;
+                flex-direction: column;
+                align-items: flex-start;
+
+            }
+        }
+
+    }
+}
+
+@media (max-width: 1000px){
+    .HomePage{
+        grid-template-columns: 1fr;
+        grid-template-rows: 100vh 100vh ;
+        grid-template-areas:
+        "LeftBox"
+        "RightBox";   
+
+        .MainBox{
+
+            form{
+                grid-template-columns: 1fr;
+                grid-template-rows: 80vh 100vh;
+                grid-template-areas: 
+                "First"
+                "Second";
+            }
+        }
+    }
+}
+
