@@ -1,3 +1,3 @@
-# Smort-ws
+# Prostate Cancer Calculator
 
-This is the source code for the smort website. The creator is `Ismael Muñoz Contreras`
+Website developed for the block: "Innovation in Public Health"
