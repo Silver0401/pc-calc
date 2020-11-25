@@ -52,7 +52,7 @@ const RightBox = (props) => {
             </div>
 
             <h2 className="QuestTitle">Solo Introduzca los datos requeridos y reciba su resultado en menos de 5 minutos</h2>
-            <a className="QuestButton" onClick={(e) => {e.preventDefault(); console.log("clicked");  document.documentElement.scrollTop = 0; document.body.scrollTop = 0 ;setTimeout(() => {props.init(InitState)}, 250)}} >
+            <a className="QuestButton" onClick={(e) => {e.preventDefault(); console.log("clicked"); props.init(InitState) ;setTimeout(() => {document.body.scrollTop = 0; document.documentElement.scrollTop = 0;}, 250)}} >
                 <p>Empezar</p>
                 <div className="liquid"></div>
             </a>

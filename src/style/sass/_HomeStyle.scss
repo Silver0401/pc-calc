@@ -42,6 +42,18 @@ $PageColorDarker: rgb(43, 148, 141);
 }
 
 
+@keyframes SmallBig{
+    0%{
+        height: 20px;
+        background-color: black;
+    }
+    100%{
+        height: 120px;
+        background-color: $PageColor;
+    }
+}
+
+
 // Font Styles
 
 // font-family: 'Dancing Script', cursive;
@@ -98,13 +110,13 @@ $PageColorDarker: rgb(43, 148, 141);
         .MainTitle{
             position: relative;
             background-color: transparent;
-            font-size: 4rem;
+            font-size: clamp(45px, 4vw, 70px);
             font-family: 'Montserrat Subrayada', sans-serif;
             text-shadow: 0px 0px 5px white;
         }
 
         .SubTitle{
-            font-size: 25px;
+            font-size: clamp(15px,4vw,25px);
             margin: 0px 50px;
             text-align: center;
             letter-spacing: 5px;
@@ -112,8 +124,8 @@ $PageColorDarker: rgb(43, 148, 141);
 
         .MainLogo{
             fill: white;
-            width: 500px;
-            height: 500px;
+            width: #{"min(450px,70%)"};
+            height: auto;
         }
 
     }
@@ -128,7 +140,7 @@ $PageColorDarker: rgb(43, 148, 141);
         // background-color: white;
 
         .QuestTitle{
-            font-size: 30px;
+            font-size: clamp(20px, 2vw, 45px);
             text-align: center;   
             margin: 0px 50px;
             letter-spacing: 2px;
@@ -137,8 +149,8 @@ $PageColorDarker: rgb(43, 148, 141);
 
         .QuestBox{
             position: relative;
-            height: 40%;
-            width: 90%;
+            height: 35%;
+            width: 80%;
             border: 2px solid white;
             // box-shadow: 0px 0px 10px white;
             border-radius: 40px;
@@ -184,16 +196,16 @@ $PageColorDarker: rgb(43, 148, 141);
                         width: 70%;
                         color: black;
                         transition: opacity 500ms;
-                        letter-spacing: 4px;
+                        // letter-spacing: 4px;
                         // font-family: 'Montserrat Subrayada', sans-serif;
                         // font-family: 'Rambla', sans-serif;
                     }
 
                     .h2-1{
-                        font-size: 2.5rem;
+                        font-size: clamp(1.5rem,2vw,2.5rem);
                     }   
                     .h2-2{
-                        font-size: 2rem;  
+                        font-size: clamp(1.2rem,2vw,2rem);  
                     }
 
                     svg{
@@ -210,7 +222,7 @@ $PageColorDarker: rgb(43, 148, 141);
                          
                 p{
                     position: absolute;
-                    overflow: hidden;
+                    overflow: scroll;
                     height: 60%;
                     width: 70%;
                     left: 7%;
@@ -242,13 +254,13 @@ $PageColorDarker: rgb(43, 148, 141);
                 font-size: 40px;
                 color: $PageColorDarker;
                 transition: color 500ms;
-                text-shadow: 0px 5px 1px black;
+                // text-shadow: 0px 5px 1px black;
             }
 
             p::before{
                 content: "";
                 position: absolute;
-                height: 8px;
+                height: 12px;
                 width: 100%;
                 top: 0%;
                 left: 0%;
@@ -261,7 +273,7 @@ $PageColorDarker: rgb(43, 148, 141);
                 content: "";
                 position: absolute;
                 height: 100%;
-                width: 8px;
+                width: 12px;
                 top: 0%;
                 left: 0%;
                 background: linear-gradient(to top, white, $PageColorDarker);
@@ -273,7 +285,7 @@ $PageColorDarker: rgb(43, 148, 141);
                 content: "";
                 position: absolute;
                 height: 100%;
-                width: 8px;
+                width: 12px;
                 bottom: 0%;
                 right: 0%;
                 background: linear-gradient(to bottom, white, $PageColorDarker);
@@ -285,7 +297,7 @@ $PageColorDarker: rgb(43, 148, 141);
                 content: "";
                 position: absolute;
                 width: 100%;
-                height: 8px;
+                height: 12px;
                 bottom: 0%;
                 right: 0%;
                 background: linear-gradient(to left, white, $PageColorDarker);
@@ -315,13 +327,14 @@ $PageColorDarker: rgb(43, 148, 141);
     
         h1{
             font-family: 'Montserrat Subrayada', sans-serif;
-            font-size: 50px;
-            padding: 0px;
+            font-size: clamp(40px,4vw,50px);
+            // padding: 0px 40px;
+            // padding-top: 20px;
+            @include alignCenter();
             color: $PageColor;
-            margin-top: 40px;
-            margin-left: 40px;
-            margin-right: 40px;
-            margin-bottom: 0px;
+            // margin-top: 40px;
+            // margin-right: 40px;
+            // margin-bottom: 0px;
         }
 
         form{
@@ -336,14 +349,14 @@ $PageColorDarker: rgb(43, 148, 141);
             grid-template-rows: 1fr;
             grid-template-areas: 
             "First Second";
+            
 
             input, label, select{
-                margin-left: 40px;
+                margin: 0px 20px;
             }
 
             label{
-                font-size: clamp(18px, 2vw, 20px);
-                margin: 0px 40px;
+                font-size: clamp(15px, 2vw, 20px);
             }
 
             select{
@@ -368,7 +381,218 @@ $PageColorDarker: rgb(43, 148, 141);
                 flex-direction: column;
                 align-items: flex-start;
 
+                .SubmitButton{
+                    position: relative;
+                    align-self: center;
+                    padding: 10px 20px;
+                    cursor: pointer;
+                    font-family: 'Montserrat Subrayada', sans-serif;
+
+                    background-color: white;
+                    transition: background-color 500ms, color 500ms;
+                    overflow: hidden;
+
+                    p{
+                        background-color: transparent;
+                        font-size: 30px;
+                        color: $PageColorDarker;
+                        transition: color 500ms;
+                        // text-shadow: 0px 5px 1px black;
+                    }
+
+                    p::before{
+                        content: "";
+                        position: absolute;
+                        height: 8px;
+                        width: 100%;
+                        top: 0%;
+                        left: 0%;
+                        background: linear-gradient(to right, white, $PageColorDarker);
+                        animation: BorderAnimLeftRight 2s linear 0ms infinite;
+                        
+                    }
+                    
+                    p::after{
+                        content: "";
+                        position: absolute;
+                        height: 100%;
+                        width: 8px;
+                        top: 0%;
+                        left: 0%;
+                        background: linear-gradient(to top, white, $PageColorDarker);
+                        transition: height 500ms;
+                        animation: BorderAnimBottomTop 2s linear 3s infinite;
+                    }
+
+                    .liquid::before{
+                        content: "";
+                        position: absolute;
+                        height: 100%;
+                        width: 8px;
+                        bottom: 0%;
+                        right: 0%;
+                        background: linear-gradient(to bottom, white, $PageColorDarker);
+                        transition: height 500ms;
+                        animation: BorderAnimTopBottom 2s linear 1s infinite;
+                    }
+
+                    .liquid::after{
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 8px;
+                        bottom: 0%;
+                        right: 0%;
+                        background: linear-gradient(to left, white, $PageColorDarker);
+                        transition: width 500ms;
+                        animation: BorderAnimRightLeft 2s linear 2s infinite;
+                    }
+                    
+                    &:hover{
+                        background-color: $PageColorDarker;
+                        p{
+                            color: white;
+                            transition: color 500ms;
+                        }
+                        transition: background-color 500ms;
+                    }
+
+                }
             }
+
+        }
+
+        #Result{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            cursor: pointer;
+            left: -101%;
+            background-color: rgba(255, 255, 255, 0.344);
+            @include alignCenter();
+
+            .ResultsBox{
+                position: relative;
+                width: 300px;
+                height: 300px;
+                background-color: $PageColorDarker;
+                @include alignCenter();
+                flex-direction: column;
+                overflow: hidden;
+
+                h4{
+                    background-color: transparent;
+                    font-size: 30px;
+                    color: black;
+                    text-decoration: underline;
+                }
+
+                h2{
+                    background-color: transparent;
+                    font-size: 25px;
+                    margin: 0px 20px;
+                    text-align: center;
+                }
+
+                p{
+                    background-color: transparent;
+                    margin: 15px;
+                    text-align: center;
+                    font-size: 20px;
+
+
+                }
+            }
+
+            .HomeButton{
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                width: 80px;
+                height: 80px;
+                @include alignCenter();
+                background-color: white;
+                border-radius: 10px;
+                svg{
+                    fill: $PageColorDarker;
+                    height: 80%;
+                    background-color: transparent;
+                    width: 80%;
+                }
+            }
+        }
+
+    }
+
+    .Loader{
+        overflow: hidden;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+        background-color: white;
+        @include alignCenter();
+        flex-direction: column;
+
+        .MainBox{
+            position: relative;
+            width: 300px;
+            height: 400px;
+            @include alignCenter();
+            flex-direction: column;
+            background-color: transparent;
+
+            .AnimBox{
+                position: relative;
+                height: 70%;
+                width: 100%;
+                background-color: transparent;
+                @include alignCenter();
+
+                div{
+                    position: relative;
+                    width: 15px;
+                    height: 120px;
+                    border-radius: 20px;
+                    box-shadow: 3px 0px 5px black;
+                    background-color: black;
+                }
+
+                .Box1{
+                    animation: SmallBig 1s linear infinite 400ms alternate;
+                }
+                .Box2{
+                    animation: SmallBig 1s linear infinite 100ms alternate;
+                }
+                .Box3{
+                    animation: SmallBig 1s linear infinite 0ms alternate;
+                }
+                .Box4{
+                    animation: SmallBig 1s linear infinite 0ms alternate;
+                }
+                .Box5{
+                    animation: SmallBig 1s linear infinite 100ms alternate;
+                }
+                .Box6{
+                    animation: SmallBig 1s linear infinite 400ms alternate;
+                }
+            }
+
+            h1{
+                background-color: transparent;
+                color: $PageColorDarker;
+            }
+        }
+
+        .MovingBox{
+            position: absolute;
+            top: 5%;
+            left: 0%;
+            width: 100%;
+            height: 90%;
+            background-color: $PageColorDarker;
+            transform: translateY(120%);
         }
 
     }
@@ -377,7 +601,7 @@ $PageColorDarker: rgb(43, 148, 141);
 @media (max-width: 1000px){
     .HomePage{
         grid-template-columns: 1fr;
-        grid-template-rows: 100vh 100vh ;
+        grid-template-rows: 100vh 120vh ;
         grid-template-areas:
         "LeftBox"
         "RightBox";   
@@ -386,7 +610,7 @@ $PageColorDarker: rgb(43, 148, 141);
 
             form{
                 grid-template-columns: 1fr;
-                grid-template-rows: 80vh 100vh;
+                grid-template-rows: 100vh 100vh;
                 grid-template-areas: 
                 "First"
                 "Second";
