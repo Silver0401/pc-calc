@@ -35,14 +35,14 @@ const MainBox = () => {
 
 
         if (total <= 7){
-            setResultsH2("Tus sintomas son muy leves")
-            setResultsP("No es probable que tengas padezcas cáncer de próstata y no es necesario realizarte un examen médico.")
+            setResultsH2("Tus síntomas son muy leves")
+            setResultsP("No es probable que padezcas cáncer de próstata y no es necesario realizarte un examen médico.")
         } else if (total >= 20) {
-            setResultsH2("Tus síntomas son moderados")
-            setResultsP("Hay una ligera probabilidad de que padezcas cáncer de próstat y te recomendamos realizarte un exámen médico pronto.")
-        } else {
             setResultsH2("Tus síntomas son severos")
             setResultsP("Existe una alta posibilidad de que padezcas cáncer de próstata, es neceario realizarte un exámen médico inmediatamente.")
+        } else {
+            setResultsH2("Tus síntomas son moderados")
+            setResultsP("Hay una ligera probabilidad de que padezcas cáncer de próstata y te recomendamos realizarte un exámen médico pronto.")
         }
     }
 
